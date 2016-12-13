@@ -7,7 +7,7 @@
 	ignorecase = true
 	hideDotFiles = dotGitOnly
 [remote "origin"]
-	url = http://github.org/mrmthornton/linuxNotes.git
+	url = http://github.com/mrmthornton/linuxNotes.git
 	url = http://bitbucket.org/mrmthornton/linuxNotes.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "master"]
