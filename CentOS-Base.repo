@@ -22,7 +22,7 @@ priority=1
 name=CentOS-$releasever - Addons
 mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=addons
 #baseurl=http://mirror.centos.org/centos/$releasever/addons/$basearch/
-enabled=1
+enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 priority=1
