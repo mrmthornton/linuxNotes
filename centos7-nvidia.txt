@@ -1,45 +1,54 @@
-yum update  # not sure this is needed
+INSTALLING CENTOS 7
 
-# The next two lines add the libraries and source needed for building the NVIDIA driver.
-yum groupinstall “Development Tools”
-yum install kernel-devel
-        
-# Change the following file (if it exists)
-Edit /etc/default/grub. Add
-                   “rd.driver.blacklist=nouveau nouveau.modeset=0? to “GRUB_CMDLINE_LINUX”
+install from live cd
 
-grub2-mkconfig -o /boot/grub2/grub.cfg
-List available kernels: awk -F\’ ‘$1==”menuentry ” {print $2}’ /etc/grub2.cfg
-Use grub2-set-default to set the updated kernel to the default. The kernels are enumerated starting at 0
-Reboot
+add user to group wheel
 
-Download the appropriate Nvidia driver for your card
-Switch from graphical to text mode: systemctl isolate multi-user.target
-Run the Nvidia driver installer
-Remove the nouveau driver: yum remove xorg-x11-drv-nouveau
-Backup old the old initramfs: mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
-Create new initramfs: dracut /boot/initramfs-$(uname -r).img $(uname -r)
-Reboot
+add repos from linxnotes.git or hand edit "centosbase, centosvault, elrepo"
 
+download keys from centos.org/keys
 
-
-
-
+INSTALL NVIDIA DRIVERS
 
 original from http://www.advancedclustering.com/act-kb/installing-nvidia-drivers-rhel-centos-7/
 
-    yum -y update
-    yum -y groupinstall “GNOME Desktop” “Development Tools”
-    yum -y install kernel-devel
-    Edit /etc/default/grub. Add “rd.driver.blacklist=nouveau nouveau.modeset=0? to “GRUB_CMDLINE_LINUX”
-    grub2-mkconfig -o /boot/grub2/grub.cfg
-    List available kernels: awk -F\’ ‘$1==”menuentry ” {print $2}’ /etc/grub2.cfg
-    Use grub2-set-default to set the updated kernel to the default. The kernels are enumerated starting at 0
-    Reboot
-    Download the appropriate Nvidia driver for your card
-    Switch from graphical to text mode: systemctl isolate multi-user.target
-    Run the Nvidia driver installer
-    Remove the nouveau driver: yum remove xorg-x11-drv-nouveau
-    Backup old the old initramfs: mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
-    Create new initramfs: dracut /boot/initramfs-$(uname -r).img $(uname -r)
-    Reboot
+yum update  # not sure this is needed
+
+# The next two lines add the libraries and source needed for building the NVIDIA driver.
+yum groupinstall --disablerepo=\* --enablerepo=vault --showduplicates"Development Tools"
+yum groupinstall --disablerepo=\* --enablerepo=vault --showduplicates "kernel-devel"
+add forcedeth module, see http://elrepo.org/tiki/tiki-index.php
+Download key:
+  https://elrepo.org/RPM-GPG-KEY-elrepo.org
+Download repo:
+  http:/www.elrepo.org/elrepos-release-7.0.2.el7.noarch.rpm
+Install forcedeth  (use the compatible version)
+  yum --disablerepo=\* --enablerepo=elrepo install kmod-forecedeth 
+
+download  NVIDIA-Linux-x86_64-340.76.run
+        
+Edit /etc/default/grub. Add the following, " rd.driver.blacklist=nouveau nouveau.modeset=0  " to the subsection with the lable GRUB_CMDLINE_LINUX
+
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+List available kernels: awk -F\$1==menuentry  {print $2}  /etc/grub2.cfg
+
+Use grub2-set-default to set the updated kernel to the default. The kernels are enumerated starting at 0
+
+REBOOT
+  Into single user mode OR
+  Switch from graphical to text mode: systemctl isolate multi-user.target
+
+Run the Nvidia driver installer
+
+Remove the nouveau driver:
+  yum remove xorg-x11-drv-nouveau
+
+Backup old the old initramfs:
+  mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
+
+Create new initramfs:
+  dracut /boot/initramfs-$(uname -r).img $(uname -r)
+
+REBOOT
+
