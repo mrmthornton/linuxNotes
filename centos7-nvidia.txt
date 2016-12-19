@@ -12,34 +12,45 @@ INSTALL NVIDIA DRIVERS
 
 original from http://www.advancedclustering.com/act-kb/installing-nvidia-drivers-rhel-centos-7/
 
-yum update  # not sure this is needed
+  yum update  # not sure this is needed
 
-# The next two lines add the libraries and source needed for building the NVIDIA driver.
-yum groupinstall --disablerepo=\* --enablerepo=vault --showduplicates"Development Tools"
-yum groupinstall --disablerepo=\* --enablerepo=vault --showduplicates "kernel-devel"
-add forcedeth module, see http://elrepo.org/tiki/tiki-index.php
-Download key:
+The next two lines add the libraries and source needed for building the NVIDIA driver.
+  yum groupinstall --disablerepo=\* --enablerepo=vault --showduplicates"Development Tools"
+  yum groupinstall --disablerepo=\* --enablerepo=vault --showduplicates "kernel-devel"
+Add forcedeth module, see http://elrepo.org/tiki/tiki-index.php
+Download key and copy to key directory:
   https://elrepo.org/RPM-GPG-KEY-elrepo.org
-Download repo:
-  http:/www.elrepo.org/elrepos-release-7.0.2.el7.noarch.rpm
+  sudo cp ~/Downloads/RPM-GPG-KEY-elrepo.org /etc/pki/rpm-gpg
+Or import the key directly:
+  sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+Download repo and copy to the repo directory:
+  http://www.elrepo.org/elrepos-release-7.0-2.el7.elrepo.noarch.rpm
+  sudo rpm -Uvh ~/Downloads/elrepos-release-7.0-2.el7.elrepo.noarch.rpm
+Or install the repo directly:
+  sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
 Install forcedeth  (use the compatible version)
   yum --disablerepo=\* --enablerepo=elrepo install kmod-forecedeth 
 
-download  NVIDIA-Linux-x86_64-340.76.run
-        
-Edit /etc/default/grub. Add the following, " rd.driver.blacklist=nouveau nouveau.modeset=0  " to the subsection with the lable GRUB_CMDLINE_LINUX
+Edit /etc/default/grub. Add the following, 
+  " rd.driver.blacklist=nouveau nouveau.modeset=0 " 
+to the subsection with the lable GRUB_CMDLINE_LINUX
 
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
 List available kernels: awk -F\$1==menuentry  {print $2}  /etc/grub2.cfg
 
-Use grub2-set-default to set the updated kernel to the default. The kernels are enumerated starting at 0
+Use grub2-set-default to set the updated kernel to the default.
+The kernels are enumerated starting at 0
 
-REBOOT
-  Into single user mode OR
-  Switch from graphical to text mode: systemctl isolate multi-user.target
+REBOOT Into single user mode
+OR switch from graphical to text mode: 
+  sudo systemctl isolate multi-user.target
 
+Download nvidia driver:
+  from nvidia.com, NVIDIA-Linux-x86_64-340.76.run
+        
 Run the Nvidia driver installer
+  sudo NVIDIA-Linux-x86_64-340.76.run
 
 Remove the nouveau driver:
   yum remove xorg-x11-drv-nouveau
