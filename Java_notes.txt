@@ -1,0 +1,4 @@
+Searching the java CLASSPATH fails unless the 'current directory' "." is placed at the end of the path
+
+		CLASSPATH=../bin/algs4.jar:.
+		export CLASSPATH

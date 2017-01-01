@@ -1,0 +1,17 @@
+sudo yum history
+
+Loaded plugins: langpacks
+ID     | Login user               | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+    11 | System <unset>           | 2016-12-26 22:11 | Install        |    1   
+    10 | mike <mike>              | 2016-12-21 23:01 | Install        |    1   
+     9 | System <unset>           | 2016-12-21 22:51 | I, U           |   12   
+     8 | mike <mike>              | 2016-12-19 22:13 | Install        |    1   
+     7 | mike <mike>              | 2016-12-19 18:28 | Update         |    1   
+     6 | mike <mike>              | 2016-12-18 22:01 | Install        |    1 E<
+     5 | mike <mike>              | 2016-12-13 21:33 | I, U           |    8 > 
+     4 | System <unset>           | 2016-12-13 21:01 | Erase          |    1 EE
+     3 | mike <mike>              | 2016-12-13 02:20 | Install        |    1   
+     2 | mike <mike>              | 2016-12-13 02:17 | Install        |   55   
+     1 | root <root>              | 2014-06-26 08:42 | Install        | 1003   
+history list

@@ -1,0 +1,22 @@
+[gui]
+	wmstate = normal
+	geometry = 887x427+150+150 171 192
+[color]
+	interactive = auto
+	ui = true
+	pager = true
+[color "status"]
+	updated = green
+	added = yellow bold
+	untracked = cyan bold
+	changed = red white bold
+[color "branch"]
+	current = green
+	local = white
+	remote = yellow bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+###
