@@ -14,4 +14,65 @@ ID     | Login user               | Date and time    | Action(s)      | Altered
      3 | mike <mike>              | 2016-12-13 02:20 | Install        |    1   
      2 | mike <mike>              | 2016-12-13 02:17 | Install        |   55   
      1 | root <root>              | 2014-06-26 08:42 | Install        | 1003   
-history list
+
+Transaction ID : 1
+    Install     firefox-24.5.0-1.el7.centos.x86_64                                       @base/$releasever
+
+Transaction ID : 2
+Command Line   : groupinstall Development Tools
+    Dep-Install cpp-4.8.2-16.el7.x86_64                      @vault
+    Install     gcc-4.8.2-16.el7.x86_64                      @vault
+    Install     gcc-c++-4.8.2-16.el7.x86_64                  @vault
+    Install     gcc-gfortran-4.8.2-16.el7.x86_64             @vault
+    Dep-Install gdb-7.6.1-51.el7.x86_64                      @vault
+    Install     git-1.8.3.1-4.el7.x86_64                     @vault
+    Dep-Install glibc-devel-2.17-55.el7.x86_64               @vault
+    Dep-Install glibc-headers-2.17-55.el7.x86_64             @vault
+    Install     kernel-debug-devel-3.10.0-123.el7.x86_64     @vault
+    Dep-Install kernel-headers-3.10.0-123.el7.x86_64         @vault
+    Dep-Install libstdc++-devel-4.8.2-16.el7.x86_64          @vault
+
+Transaction ID : 3
+Command Line   : install kernel-devel
+    Install kernel-devel-3.10.0-123.el7.x86_64 @vault
+
+Transaction ID : 4
+    Erase firefox-24.5.0-1.el7.centos.x86_64 @base/$releasever
+
+Transaction ID : 5
+Command Line   : install firefox-45.4.0-1.el7.centos.x86_64
+    Install firefox-45.4.0-1.el7.centos.x86_64          @base
+
+Transaction ID : 6
+Command Line   : install kmod-forcedeth-0.64-1*
+    Install kmod-forcedeth-0.64-1.el7.elrepo.x86_64 @elrepo
+
+Transaction ID : 7
+Command Line   : upgrade-to firefox-45.5.1
+    Updated firefox-45.4.0-1.el7.centos.x86_64      @base
+    Update          45.5.1-1.el7.centos.plus.x86_64 @centosplus
+
+Transaction ID : 8
+Command Line   : install thunderbird
+    Install thunderbird-45.5.1-1.el7.centos.x86_64 @updates
+
+Transaction ID : 9
+    Install     java-1.8.0-openjdk-1:1.8.0.111-2.b15.el7_3.x86_64          @updates
+    Install     java-1.8.0-openjdk-devel-1:1.8.0.111-2.b15.el7_3.x86_64    @updates
+    Dep-Install java-1.8.0-openjdk-headless-1:1.8.0.111-2.b15.el7_3.x86_64 @updates
+    Dep-Install python-javapackages-3.4.1-11.el7.noarch                    @base
+
+Transaction ID : 10
+Command Line   : install java-1.8.0-openjdk-javadoc.noarch
+    Install java-1.8.0-openjdk-javadoc-1:1.8.0.111-2.b15.el7_3.noarch @updates
+
+Transaction ID : 11
+    Install Cython-0.19-3.el7.x86_64 @base
+
+Transaction ID : 12
+    Install     atom-1.12.7-0.1.x86_64                                @/atom.x86_64
+
+Transaction ID : 13
+Command Line   : remove atom
+    Erase atom-1.12.7-0.1.x86_64 @/atom.x86_64
+
