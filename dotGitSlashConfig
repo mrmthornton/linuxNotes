@@ -15,7 +15,7 @@
 	merge = refs/heads/master
 [http]
 	# sslVerify = false
-#	proxy = http://:@proxy.ntta.org:8080
+#	proxy = http://:@proxy.company.com:<port>
 	# emptyAuth = true
 [remote "github"]
 #	url = git@github.com:mrmthornton/scripting.git
