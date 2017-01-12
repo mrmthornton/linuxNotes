@@ -1,0 +1,2 @@
+ GNOME:  gsettings get org.gnome.desktop.session idle-delay
+ GNOME:  gsettings set org.gnome.desktop.session idle-delay SECS
