@@ -77,3 +77,24 @@ Transaction ID : 13
 Command Line   : remove atom
     Erase atom-1.12.7-0.1.x86_64 @/atom.x86_64
 
+Loaded plugins: langpacks
+ID     | Login user               | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+    27 | mike <mike>              | 2017-04-15 10:00 | Install        |    1   
+    26 | System <unset>           | 2017-03-22 22:44 | Install        |    1 EE
+    25 | System <unset>           | 2017-01-28 22:55 | D, E, I        |  202   
+    24 | mike <mike>              | 2017-01-27 20:46 | I, O, U        |  203   
+    23 | System <unset>           | 2017-01-22 16:22 | D, E           |    2   
+    22 | System <unset>           | 2017-01-22 16:19 | D, E           |   34 EE
+    21 | System <unset>           | 2017-01-22 16:17 | D, E           |    7   
+    20 | System <unset>           | 2017-01-22 16:15 | Install        |    1   
+    19 | System <unset>           | 2017-01-22 16:15 | Install        |    1   
+    18 | System <unset>           | 2017-01-22 13:58 | Erase          |    1   
+    17 | System <unset>           | 2017-01-22 13:57 | Erase          |    1   
+    16 | mike <mike>              | 2017-01-22 13:21 | I, U           |    7   
+    15 | mike <mike>              | 2017-01-22 13:16 | I, U           |   34 EE
+    14 | mike <mike>              | 2017-01-22 13:15 | I, U           |    2   
+    13 | mike <mike>              | 2017-01-02 16:38 | Erase          |    1   
+    12 | System <unset>           | 2017-01-02 04:15 | I, U           |   21 EE
+
+
