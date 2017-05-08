@@ -1,0 +1,33 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+
+# added by Anaconda2 4.2.0 installer
+export PATH="/home/mike/PortableSoftware/anaconda2/bin:$PATH"
+
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin
+export PATH
+
+CLASSPATH=$HOME/workspace/commonFiles/algs4.jar:$HOME/workspace/algs4/bin/:.
+export CLASSPATH
+
+source ~/.git-prompt.sh
+PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+
+GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWUPSTREAM
+
+GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWDIRTYSTATE
+
+GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWCOLORHINTS=1

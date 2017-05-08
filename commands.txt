@@ -1,5 +1,12 @@
+
+	USEFUL commands, not used enought to rememeber
+
  gsettings get org.gnome.desktop.session idle-delay
  gsettings set org.gnome.desktop.session idle-delay SECS
 
- gsettings set org.gnome.desktop.wm.preferences num-workspaces 6 #--->> first, if needed, sets default names
- gsettings set org.gnome.desktop.wm.preferences workspace-names "['base', 'linux','research','virtualbox','MOOCs','eclipse']"
+ gsettings set org.gnome.desktop.wm.preferences workspace-names "['email & general', 'linux','research','virtualbox','MOOCs','Machine Learning']"
+ gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
+
+ sudo yum-config-manager --save --setopt=epel.skip_if_unavailable=true
+ 
+ find . -exec cat {} \; |& grep -i "haskel"
