@@ -9,4 +9,5 @@
 
  sudo yum-config-manager --save --setopt=epel.skip_if_unavailable=true
  
+
  find . -exec cat {} \; |& grep -i "haskel"
